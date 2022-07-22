@@ -24,10 +24,12 @@ const Navigation = () => {
         </div>
 
         <div className="nav__options">
-          <div className="nav__option">
-            <span className="nav__optionLineOne">Hello Guest</span>
-            <span className="nav__optionLineTwo">Sign In</span>
-          </div>
+          <Link to="/auth">
+            <div className="nav__option">
+              <span className="nav__optionLineOne">Hello Guest</span>
+              <span className="nav__optionLineTwo">Sign In</span>
+            </div>
+          </Link>
 
           <div className="nav__option">
             <span className="nav__optionLineOne">Returns</span>

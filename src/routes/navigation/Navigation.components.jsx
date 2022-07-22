@@ -24,7 +24,7 @@ const Navigation = () => {
         </div>
 
         <div className="nav__options">
-          <Link to="/auth">
+          <Link to="/login">
             <div className="nav__option">
               <span className="nav__optionLineOne">Hello Guest</span>
               <span className="nav__optionLineTwo">Sign In</span>

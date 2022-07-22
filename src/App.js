@@ -9,8 +9,9 @@ import './App.css';
 
 import Navigation from './routes/navigation/Navigation.components';
 import Home from './routes/home/Home.component';
-import Authentication from './routes/authentication/Authentication.component';
 import Checkout from './routes/checkout/Checkout.component';
+import Login from './routes/login/Login.component';
+import Register from './routes/register/Register.component';
 
 const App = () => {
   return (
@@ -18,9 +19,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<Home />} />
-          <Route path="auth" element={<Authentication />} />
           <Route path="checkout" element={<Checkout />} />
         </Route>
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
       </Routes>
     </Router>
   );

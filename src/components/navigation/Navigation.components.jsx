@@ -3,8 +3,11 @@ import './Navigation.styles.css';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { Outlet } from 'react-router-dom';
+import { useStateValue } from '../../context/StateProvider';
 
 const Navigation = () => {
+  const [{ basket, user }, dispatch] = useStateValue();
+
   return (
     <>
       <div className="navbar">
@@ -37,7 +40,7 @@ const Navigation = () => {
           <div className="nav__optionBasket">
             <ShoppingBasketIcon />
             <span className="nav__optionLineTwo nav__basketCount">
-              0
+              {basket.length}
             </span>
           </div>
         </div>

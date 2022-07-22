@@ -7,8 +7,10 @@ import {
 
 import './App.css';
 
-import Navigation from './components/navigation/Navigation.components';
-import Home from './components/home/Home.component';
+import Navigation from './routes/navigation/Navigation.components';
+import Home from './routes/home/Home.component';
+import Authentication from './routes/authentication/Authentication.component';
+import Checkout from './routes/checkout/Checkout.component';
 
 const App = () => {
   return (
@@ -16,6 +18,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<Home />} />
+          <Route path="auth" element={<Authentication />} />
+          <Route path="checkout" element={<Checkout />} />
         </Route>
       </Routes>
     </Router>

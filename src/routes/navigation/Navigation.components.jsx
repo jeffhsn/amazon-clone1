@@ -2,7 +2,7 @@ import React from 'react';
 import './Navigation.styles.css';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 import { useStateValue } from '../../context/StateProvider';
 
 const Navigation = () => {
@@ -11,10 +11,12 @@ const Navigation = () => {
   return (
     <>
       <div className="navbar">
-        <img
-          className="nav__logo"
-          src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
-        />
+        <Link to="/">
+          <img
+            className="nav__logo"
+            src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
+          />
+        </Link>
 
         <div className="nav__search">
           <input className="nav__searchInput" type="text" />
@@ -37,12 +39,14 @@ const Navigation = () => {
             <span className="nav__optionLineTwo">Prime</span>
           </div>
 
-          <div className="nav__optionBasket">
-            <ShoppingBasketIcon />
-            <span className="nav__optionLineTwo nav__basketCount">
-              {basket.length}
-            </span>
-          </div>
+          <Link to="/checkout">
+            <div className="nav__optionBasket">
+              <ShoppingBasketIcon />
+              <span className="nav__optionLineTwo nav__basketCount">
+                {basket.length}
+              </span>
+            </div>
+          </Link>
         </div>
       </div>
       <Outlet />

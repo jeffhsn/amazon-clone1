@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -12,8 +12,30 @@ import Home from './routes/home/Home.component';
 import Checkout from './routes/checkout/Checkout.component';
 import Login from './routes/login/Login.component';
 import Register from './routes/register/Register.component';
+import { useStateValue } from './context/StateProvider';
+import { auth } from './firebase';
 
 const App = () => {
+  const [_, dispatch] = useStateValue();
+
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      console.log('THE USER IS >>>', authUser);
+
+      if (authUser) {
+        dispatch({
+          type: 'SET_USER',
+          user: authUser,
+        });
+      } else {
+        dispatch({
+          type: 'SET_USER',
+          user: null,
+        });
+      }
+    });
+  }, []);
+
   return (
     <Router>
       <Routes>

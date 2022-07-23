@@ -4,9 +4,16 @@ import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { Outlet, Link } from 'react-router-dom';
 import { useStateValue } from '../../context/StateProvider';
+import { signOutUser } from '../../firebase';
 
 const Navigation = () => {
   const [{ basket, user }, dispatch] = useStateValue();
+
+  const handleAuthentication = () => {
+    if (user) {
+      signOutUser();
+    }
+  };
 
   return (
     <>
@@ -24,10 +31,17 @@ const Navigation = () => {
         </div>
 
         <div className="nav__options">
-          <Link to="/login">
-            <div className="nav__option">
-              <span className="nav__optionLineOne">Hello Guest</span>
-              <span className="nav__optionLineTwo">Sign In</span>
+          <Link to={!user && '/login'}>
+            <div
+              className="nav__option"
+              onClick={handleAuthentication}
+            >
+              <span className="nav__optionLineOne">
+                Hello {!user ? 'Guest' : user.email}
+              </span>
+              <span className="nav__optionLineTwo">
+                {user ? 'SignOut' : 'SignIn'}
+              </span>
             </div>
           </Link>
 

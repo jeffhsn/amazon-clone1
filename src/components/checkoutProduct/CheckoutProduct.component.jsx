@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStateValue } from '../../context/StateProvider';
+import './CheckoutProduct.styles.css';
 
 const CheckoutProduct = ({
   id,
@@ -9,7 +10,7 @@ const CheckoutProduct = ({
   rating,
   hideButton,
 }) => {
-  const [{ basket }, dispatch] = useStateValue;
+  const [_, dispatch] = useStateValue();
 
   const removeFromBasket = () => {
     dispatch({

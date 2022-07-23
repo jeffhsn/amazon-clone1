@@ -11,7 +11,6 @@ import Navigation from './routes/navigation/Navigation.components';
 import Home from './routes/home/Home.component';
 import Checkout from './routes/checkout/Checkout.component';
 import Login from './routes/login/Login.component';
-import Register from './routes/register/Register.component';
 import { useStateValue } from './context/StateProvider';
 import { auth } from './firebase';
 
@@ -44,7 +43,6 @@ const App = () => {
           <Route path="checkout" element={<Checkout />} />
         </Route>
         <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
       </Routes>
     </Router>
   );

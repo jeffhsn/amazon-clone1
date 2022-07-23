@@ -7,7 +7,7 @@ import { useStateValue } from '../../context/StateProvider';
 import { signOutUser } from '../../firebase';
 
 const Navigation = () => {
-  const [{ basket, user }, dispatch] = useStateValue();
+  const [{ basket, user }] = useStateValue();
 
   const handleAuthentication = () => {
     if (user) {
